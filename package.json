@@ -1,0 +1,36 @@
+{
+  "name": "loanapp-backend",
+  "version": "1.0.0",
+  "description": "Sharkdevs Backend project in Nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev": "NODE_ENV=development  nodemon --exec babel-node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharkdevs/loanapp-backend.git"
+  },
+  "keywords": [
+    "loanapp"
+  ],
+  "author": "sharkdevs",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sharkdevs/loanapp-backend/issues"
+  },
+  "homepage": "https://github.com/sharkdevs/loanapp-backend#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-node": "0.0.1-security",
+    "express": "^4.17.1",
+    "pg": "^7.12.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.19.3",
+    "sequelize-cli": "^5.5.1"
+  },
+  "devDependencies": {
+    "babel-loader": "^8.0.6",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
