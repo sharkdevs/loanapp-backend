@@ -4,16 +4,23 @@
     "password": "0391@Database",
     "database": "loanapp",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "test": {
     "username": "meshack",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "operatorsAliases": false
   },
   "production": {
-    "use_env_variable": "DATABASE_URL"
+    "username": "meshack",
+    "password": null,
+    "database": "loanapp",
+    "host": "127.0.0.1",
+    "dialect": "postgres",
+    "operatorsAliases": false
   }
 }
