@@ -18,6 +18,11 @@ router.get(`${apiPrefix}managers`, OfficerController.getLoanOfficers);
 router.post(`${apiPrefix}managers`, OfficerController.getLoanOfficers);
 
 router.post(`${apiPrefix}auth/register`, AuthController.createUser);
+
 router.post(`${apiPrefix}auth/login`, AuthController.loginUser);
+
+router.post(`${apiPrefix}farmers/repayment`, FarmersController.makePayment);
+
+
 
 export default router
