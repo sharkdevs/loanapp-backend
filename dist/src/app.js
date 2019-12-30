@@ -17,7 +17,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var app = new _express2.default();
 app.use((0, _cors2.default)());
 app.use(_apiRouter2.default);
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 app.listen(port, function () {
   console.log('Server started on http://127.0.0.1:' + port);
 });

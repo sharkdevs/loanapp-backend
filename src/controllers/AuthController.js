@@ -1,9 +1,9 @@
-import AuthService from '../services/AuthService';
 import jwt from 'jsonwebtoken';
+import AuthService from '../services/AuthService';
 
-class AuthController{
+class AuthController {
   static async createUser(req, res) {
-    const { body } = req
+    const { body } = req;
     const user = await AuthService.createUser(body);
     const token = AuthController.generateToken(user.id);
 
@@ -11,39 +11,36 @@ class AuthController{
       success: true,
       message: 'User created successfully!',
       user,
-      token
+      token,
     });
-
   }
-  
-  static generateToken(id){
-    let token = jwt.sign(
-      {userId: id},
+
+  static generateToken(id) {
+    const token = jwt.sign(
+      { userId: id },
       'MY.secret',
-      { expiresIn: '24h'}
+      { expiresIn: '24h' },
     );
     return token;
   }
 
-  static async loginUser(req, res){
+  static async loginUser(req, res) {
     const { body } = req;
     const user = await AuthService.getUser(body);
-    if(!user){
+    if (!user) {
       res.status(404).json({
-        message: 'nothing was found'
+        message: 'nothing was found',
       });
-    }else{
+    } else {
       const token = AuthController.generateToken(user.id);
       res.status(200).json({
         success: true,
         message: 'User Logged In successfully!',
         user,
-        token
+        token,
       });
     }
-    
   }
- 
 }
 
 export default AuthController;
