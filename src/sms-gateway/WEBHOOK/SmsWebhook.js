@@ -1,3 +1,5 @@
+import twilio from 'twilio';
+
 class SmsWebhook {
   static getResponseWebhook(req, res) {
     const { query } = req;
@@ -13,24 +15,22 @@ class SmsWebhook {
   static postResponseWebhook(req, res) {
     const { query } = req;
     const { body: { Body: command, From } } = req;
-    let message = 'Welcome';
+    const { MessagingResponse } = twilio.twiml;
+    const twiml = new MessagingResponse();
     console.log('-------------', query, command, From);
 
     switch (command) {
-      case 1:
-        message = '\b ILAM Registration: \b \n Enter Your name';
+      case '1':
+        twiml.message('ILAM Registration:  Enter Your name');
         break;
       case 'Start':
       default:
-        message = 'Welcome to \b ILAM API \b \n 1. Register,\n 2. Login';
+        twiml.message(`${'Welcome to *ILAM API*'}. Respond with: \n 1. Register, \n 2. Login`);
         break;
     }
 
-    res.json({
-      message,
-      status: 'success',
-      type: 'sms',
-    });
+    res.writeHead(200, { 'Content-Type': 'text/xml' });
+    res.end(twiml.toString());
   }
 }
 export default SmsWebhook;
