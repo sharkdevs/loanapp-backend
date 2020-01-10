@@ -16,6 +16,10 @@ var _OfficerController = require('../controllers/OfficerController');
 
 var _OfficerController2 = _interopRequireDefault(_OfficerController);
 
+var _AuthController = require('../controllers/AuthController');
+
+var _AuthController2 = _interopRequireDefault(_AuthController);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var router = _express2.default.Router();
@@ -29,5 +33,9 @@ router.get(apiPrefix + 'farmers', _FarmersController2.default.getAllFarmers);
 router.get(apiPrefix + 'farmers/:id', _FarmersController2.default.getFarmer);
 
 router.get(apiPrefix + 'managers', _OfficerController2.default.getLoanOfficers);
+
+router.post(apiPrefix + 'managers', _OfficerController2.default.getLoanOfficers);
+
+router.post(apiPrefix + 'auth/register', _AuthController2.default.createUser);
 
 exports.default = router;

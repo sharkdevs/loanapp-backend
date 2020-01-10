@@ -23,6 +23,16 @@ class FarmersController{
       farmers
     });
   }
+
+  static async makePayment(req, res) {
+    const { loanId, amount} = req.body;
+
+    const loanPayment = await FarmersService.makePayment(loanId, amount);
+    res.status(201).json({
+      message: 'successfully made payments',
+      loanPayment
+    });
+  }
 }
 
 export default FarmersController;

@@ -19,5 +19,14 @@ class FarmersService{
     return farmers;
   }
 
+  static async makePayment(loanId, amount) {
+    const payload = { 
+      LoanId: loanId, 
+      amountPaid: amount
+    };
+    const payment = await Payment.create(payload);
+    return payment;
+  }
+
 }
 export default FarmersService;
